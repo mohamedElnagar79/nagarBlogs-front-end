@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="containPage mt-5 pb-5 pt-4">
+    <h3 class="search-title ms-3 mb-5">Search Articles</h3>
+    <form name="articleSearch " #articleSearch="ngForm">
+      <input
+        type="text"
+        class="form-control ms-3 mb-3"
+        id="article"
+        placeholder="article"
+        name="article"
+        minlength="3"
+        maxlength="35"
+        [(ngModel)]="searchKey"
+        #article="ngModel"
+        (keyup)="filterArticles()"
+      />
+    </form>
+    <h1
+      class="mt-5 ms-3 mb-5 py-5"
+      *ngIf="articles.length == 0 || emptyFlag == true"
+    >
+      no article found
+    </h1>
+    <div class="filter mt-5 mb-5" *ngIf="articles.length > 1">
+      <div class="row g-0">
+        <div class="col-sm-6 col-md-4" *ngFor="let article of articles">
+          <div class="card m-3 article-card" id="{{ article.id }}">
+            <div class="card-body">
+              <h5 class="card-title">{{ article.title }}</h5>
+              <h6>{{ article.author }}</h6>
+              <p class="card-text">
+                {{ article.body }}
+              </p>
+              <a class="btn btn-primary" (click)="getArticleInfo(article.id)">
+                More Details</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

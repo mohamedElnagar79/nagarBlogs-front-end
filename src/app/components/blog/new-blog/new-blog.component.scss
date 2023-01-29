@@ -1,0 +1,23 @@
+$primaryColor: #db0808;
+form {
+  height: 100%;
+  padding: 2rem 0;
+  label {
+    margin: 1rem 0;
+  }
+}
+.title {
+  text-decoration: underline;
+  color: $primaryColor;
+  margin-bottom: 2rem;
+}
+.contain-add-btn {
+  text-align: center;
+  margin-top: 3rem;
+  .add {
+    margin: 1rem auto;
+    border: 1px solid $primaryColor;
+    color: $primaryColor;
+    width: 50%;
+  }
+}

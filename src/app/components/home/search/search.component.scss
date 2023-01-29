@@ -1,0 +1,17 @@
+$primaryColor: #db0808;
+.containPage {
+  height: 100% !important;
+  .search-title {
+    text-decoration: underline;
+    color: $primaryColor;
+  }
+  .article-card {
+    height: 235px;
+    overflow: auto;
+    padding: 1rem 0;
+  }
+  form {
+    margin: 1rem 0rem 3rem 0;
+    width: 40%;
+  }
+}

@@ -1,0 +1,104 @@
+<div class="container">
+  <div class="contain-page pt-5">
+    <form
+      class="col-sm-6 row"
+      name="signUpForm"
+      #newArticle="ngForm"
+      (submit)="addArticle(newArticle)"
+    >
+      <div class="head">
+        <h2 class="title">New Article</h2>
+      </div>
+      <div class="col-md-6">
+        <label for="Title">Article Title</label>
+        <input
+          type="text"
+          class="form-control"
+          id="Title"
+          placeholder="Article Title"
+          name="articleTitle"
+          [(ngModel)]="article.title"
+          required
+          minlength="3"
+          maxlength="35"
+          #articleTitle="ngModel"
+        />
+        <p
+          *ngIf="articleTitle.errors?.['required'] && articleTitle.touched"
+          class="text-danger"
+        >
+          Title is required
+        </p>
+        <p
+          *ngIf="articleTitle.errors?.['minlength'] && articleTitle.touched"
+          class="text-danger"
+        >
+          Title must at least 3 characters
+        </p>
+        <p
+          *ngIf="articleTitle.errors?.['maxlength'] && articleTitle.touched"
+          class="text-danger"
+        >
+          Title max length 35 characters
+        </p>
+      </div>
+      <div class="col-md-6">
+        <label for="author">Author</label>
+        <input
+          type="text"
+          class="form-control"
+          id="AuthorName"
+          placeholder="Author Name"
+          name="author"
+          [(ngModel)]="article.author"
+          required
+          minlength="3"
+          maxlength="35"
+          #author="ngModel"
+        />
+        <p
+          *ngIf="author.errors?.['required'] && author.touched"
+          class="text-danger"
+        >
+          Author is required
+        </p>
+        <p
+          *ngIf="author.errors?.['minlength'] && author.touched"
+          class="text-danger"
+        >
+          Author must at least 3 characters
+        </p>
+        <p
+          *ngIf="author.errors?.['maxlength'] && author.touched"
+          class="text-danger"
+        >
+          Author max length 35 characters
+        </p>
+      </div>
+      <div class="col-md-12">
+        <label for="articleBody">article Body</label>
+        <textarea
+          name="articleBody"
+          id="articleBody"
+          cols="30"
+          rows="5"
+          class="form-control"
+          [(ngModel)]="article.body"
+          #body="ngModel"
+          required
+        ></textarea>
+        <p
+          *ngIf="body.errors?.['required'] && body.touched"
+          class="text-danger"
+        >
+          body is required
+        </p>
+      </div>
+      <div class="col-md-12">
+        <div class="contain-add-btn">
+          <button class="btn mt-2 add" type="submit">Submit</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
